@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="container" style = "text-align: center">
+        {% include "navbar.html" %}
+        <h1>Welcome to our website.</h1>
+        
+        <form action = "/index/" method = "POST">
+            {% csrf_token %}
+            <input type = "text" name = "check">
+            <button>Send<button/>
+
+        </form>
+        
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, doloremque nesciunt! Similique modi quae nemo consequatur alias necessitatibus temporibus perspiciatis laudantium assumenda aliquid suscipit facere velit magni nihil aspernatur, hic obcaecati labore deleniti itaque. Saepe quia repellendus ut doloremque nam maiores dolorum repellat! Itaque inventore rerum assumenda voluptatibus amet maiores!</p>
+        <button>Contact Us</button>
+
+        {% if isActive %}
+        <div>
+            <h1>Today's Date is : {{date}}</h1>
+            <h1>Company Name is : {{name}}</h1>
+            <hr />
+            <h1>Student data</h1>
+            <h2>Student name : {{student.student_name}}</h2>
+            <h2>Student college : {{student.institute}}</h2>
+            <h2>Student city : {{student.city}}</h2>
+            <hr>
+            <h1>Skills</h1>
+            {% for s in list_of_skills %}
+
+            <h3>{{s}}</h3>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
