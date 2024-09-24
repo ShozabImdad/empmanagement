@@ -1,7 +1,7 @@
 from django import forms
 
 class Feedback(forms.Form):
-    email = forms.EmailField(label = 'Enter you email', max_length = 200)
+    email = forms.EmailField(label = 'Enter your email', max_length = 200)
     name = forms.CharField(label = 'Enter your Name', max_length = 200)
     feedback = forms.CharField(label = 'Enter your Feedback', widget = forms.Textarea)
     

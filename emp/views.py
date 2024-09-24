@@ -2,14 +2,19 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Emp, Testimonial
 from .forms import Feedback
+from django.contrib.auth.decorators import login_required
+
+
 
 # Create your views here.
+@login_required(login_url = '/admin/login')
 def emp_home(request):
     
     emps = Emp.objects.all()
     #return HttpResponse('Student Home Page')
     return render(request, "emp/home.html", {'emps':emps})
 
+@login_required(login_url = '/admin/login')
 def add_emp(request):
     if request.method == "POST":
         
